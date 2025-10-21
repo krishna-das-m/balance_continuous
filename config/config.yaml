@@ -1,7 +1,13 @@
+artifacts_root: artifacts
+
 data_ingestion:
   root_dir: artifacts/data_ingestion
   local_data_file: artifacts/data/sandp500.zip
 
 # YF settings
 yfinance_config:
-  tickers: data/sandp500.zip
+  tickers: https://raw.githubusercontent.com/krishna-das-m/balance_continuous/refs/heads/main/data/SandP500Ticker.csv
+  start_date: "2000-01-01"
+  end_date: null  # null means current date
+  interval: "1d"
+  auto_adjust: False
