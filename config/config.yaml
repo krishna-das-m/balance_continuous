@@ -2,12 +2,22 @@ artifacts_root: artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion
-  local_data_file: artifacts/data/sandp500.zip
+
+data_transformation:
+  root_dir: artifacts/data_transformation
 
 # YF settings
 yfinance_config:
-  tickers: https://raw.githubusercontent.com/krishna-das-m/balance_continuous/refs/heads/main/data/SandP500Ticker.csv
+  # tickers: https://raw.githubusercontent.com/krishna-das-m/balance_continuous/refs/heads/main/data/SandP500Ticker.csv
+  tickers: [
+    AAPL, MSFT, NVDA, GOOGL, AMZN, META, BRK-B, AVGO, LLY, TSLA,
+    WMT, JPM, V, UNH, XOM, MA, ORCL, COST, HD, PG,
+    NFLX, JNJ, BAC, ABBV, CRM, KO, CVX, MRK, AMD, ADBE,
+    PEP, TMO, WFC, CSCO, MCD, ACN, LIN, ABT, DHR, TXN,
+    PM, VZ, QCOM, IBM, INTU, NOW, DIS, NEE, CAT, GE
+  ]
   start_date: "2000-01-01"
   end_date: null  # null means current date
   interval: "1d"
   auto_adjust: False
+# [AAPL, MSFT, GOOGL, AMZN, TSLA, META, NVDA, JPM, V, BRK-B]
