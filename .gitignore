@@ -9,5 +9,5 @@ wheels/
 # Virtual environments
 .venv
 
-artifacts/*
+# artifacts/*
 .vscode/settings.json
