@@ -105,17 +105,21 @@ def run_tau_estimator():
         (tickers_df['Date'] <= end_date)
     ]
 
-    price_data = price_data_range.pivot(index='Date', columns='Ticker', values='Adj Close')
+    # price_data = price_data_range.pivot(index='Date', columns='Ticker', values='Adj Close')
 
     # Compute Kendall tau
-    YA = price_data[tickerA].dropna().to_numpy()
-    YB = price_data[tickerB].dropna().to_numpy()
+    YA = price_data_range[tickerA].dropna().to_numpy()
+    YB = price_data_range[tickerB].dropna().to_numpy()
 
     tau_AB = kendall_tau_estimator(YA, YB, h=0.1)
 
     # Save result
     output_file = f"output_tau/tau_{tickerA}_{tickerB}.csv"
-    pd.DataFrame([[price_data.index, tau_AB]], columns=['Date', 'Tau']).to_csv(output_file, index=False)
+    # pd.DataFrame([[price_data_range.index, tau_AB]], columns=['Date', 'Tau']).to_csv(output_file, index=False)
+    pd.DataFrame({
+        'Date':price_data_range['Date'],
+        'tau_AB':tau_AB
+    }).to_csv(output_file, index=False)
 
     print(f"Saved τ({tickerA}, {tickerB}) = {tau_AB} to {output_file}")
 
