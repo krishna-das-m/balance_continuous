@@ -12,6 +12,7 @@ dependencies = [
     "jupyter>=1.1.1",
     "logging>=0.4.9.6",
     "lxml>=6.0.2",
+    "numba>=0.62.1",
     "pandas>=2.3.3",
     "pyarrow>=21.0.0",
     "python-box>=7.3.2",
